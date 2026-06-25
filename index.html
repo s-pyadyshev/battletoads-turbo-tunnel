@@ -584,6 +584,11 @@ function TitleScreen() {
       playerInitiatedAt = counter
       frogCollision = true
       frogGravity = true
+
+      if (winnerText && winnerText instanceof PIXI.Text) {
+        winnerText.visible = false;
+      }
+
       if (musicOn) {
         music.play()
       }
@@ -1900,7 +1905,6 @@ function setVariables() {
   lastGap = 0
   nextSpecial = specialInterval/2
   winnerMessageShown = false
-  winnerText = ''
 }
 
 function resetGame() {
@@ -5279,17 +5283,26 @@ function update() {
   info.text = "Distance: " + feet + " m."
   if (feet >= 1500 && !winnerMessageShown) {
     winnerMessageShown = true;
-    winnerText.visible = true;
     scrollSpeed = 0;
     frogCollision = false;
     frog.velocity.x = 0;
     frog.velocity.y = 0;
     frog.velocity.z = 0;
     events.length = 0; 
-    setTimeout(function() {
-        winnerText.visible = false;
-        transitionScreen.summon(true);
-    }, 20000); 
+    
+    resetGame(); 
+    titleScreen.container.visible = true;
+    titleScreen.resetTitles();
+    
+    if (musicOn && music) {
+        music.stop();
+    }
+    
+    if (winnerText && winnerText instanceof PIXI.Text) {
+        winnerText.text = "TOAD";
+        winnerText.visible = true;
+        stage.setChildIndex(winnerText, stage.children.length - 1);
+    }
   }
 
   if (debugMode) {

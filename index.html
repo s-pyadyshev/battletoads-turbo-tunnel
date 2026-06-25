@@ -2189,12 +2189,12 @@ function init() {
   stage.addChild(debug)
   stage.addChild(info)
   winnerText = new PIXI.Text("TOAD", {
-      fontFamily: 'Press Start 2P',
-      fontSize: Math.round(viewHeight / 3),
-      fill: '#F7ffCA',
-      stroke: '#224422',
-      strokeThickness: Math.round(pixelSize * 7),
-      align: 'center'
+    fontFamily: 'Press Start 2P',
+    fontSize: Math.round(viewHeight / 3),
+    fill: '#F7ffCA',
+    stroke: '#224422',
+    strokeThickness: Math.round(pixelSize * 7),
+    align: 'center'
   });
   winnerText.anchor.set(0.5);
   winnerText.x = viewWidth / 2;
@@ -5281,7 +5281,11 @@ function update() {
     winnerMessageShown = true;
     winnerText.visible = true;
     scrollSpeed = 0;
-
+    frogCollision = false;
+    frog.velocity.x = 0;
+    frog.velocity.y = 0;
+    frog.velocity.z = 0;
+    events.length = 0; 
     setTimeout(function() {
         winnerText.visible = false;
         transitionScreen.summon(true);

@@ -2192,9 +2192,9 @@ function init() {
   }
   stage.addChild(debug)
   stage.addChild(info)
-  winnerText = new PIXI.Text("TOAD", {
+  winnerText = new PIXI.Text("BEST PACK", {
     fontFamily: 'Press Start 2P',
-    fontSize: Math.round(viewHeight / 3),
+    fontSize: Math.round(viewHeight / 6),
     fill: '#F7ffCA',
     stroke: '#224422',
     strokeThickness: Math.round(pixelSize * 7),
@@ -4749,26 +4749,26 @@ function Frog(vehicle) {
       if (direction === "up") {
         if (this.velocity.y > -this.speed) {
           // this.velocity.y -= this.speed/10
-          this.velocity.y -= this.speed/8
+          this.velocity.y -= this.speed/6
         }
       }
       if (direction === "down") {
         if (this.velocity.y < this.speed) {
           // this.velocity.y += this.speed/10 
-          this.velocity.y += this.speed/8
+          this.velocity.y += this.speed/6
         }
       }
       if (direction === "left") {
         if (this.velocity.x > -this.speed) {
           // this.velocity.x -= this.speed/10
-          this.velocity.x -= this.speed/8
+          this.velocity.x -= this.speed/6
         }
         
       }
       if (direction === "right") {
         if (this.velocity.x < this.speed) {
           // this.velocity.x += this.speed/10
-          this.velocity.x += this.speed/8
+          this.velocity.x += this.speed/6
         }				
       }
     }
@@ -5280,7 +5280,7 @@ function update() {
   // }
 
   var feet = scoreInFeet(totalDistance)
-  info.text = "Distance: " + feet + " m."
+  info.text = "Time: " + Math.floor(counter / 100) + " s. / " + "Distance: " + feet + " m."
   if (feet >= 1500 && !winnerMessageShown) {
     winnerMessageShown = true;
     scrollSpeed = 0;
@@ -5299,7 +5299,7 @@ function update() {
     }
     
     if (winnerText && winnerText instanceof PIXI.Text) {
-        winnerText.text = "TOAD";
+        winnerText.text = "BEST PACK";
         winnerText.visible = true;
         stage.setChildIndex(winnerText, stage.children.length - 1);
     }

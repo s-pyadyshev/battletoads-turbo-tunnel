@@ -5362,7 +5362,7 @@
 
         var feet = scoreInFeet(totalDistance)
         info.text = "Time: " + Math.floor(counter / 100) + " s. / " + "Distance: " + feet + " m."
-        if (feet >= 1500 && !winnerMessageShown) {
+        /*  if (feet >= 1500 && !winnerMessageShown) {
           winnerMessageShown = true;
           scrollSpeed = 0;
           frogCollision = false;
@@ -5384,7 +5384,7 @@
             winnerText.visible = true;
             stage.setChildIndex(winnerText, stage.children.length - 1);
           }
-        }
+        }  */
 
         if (debugMode) {
           debug.text = "collision: " + frogCollision

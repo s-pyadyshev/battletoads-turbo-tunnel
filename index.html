@@ -933,7 +933,7 @@
         "smartupdate": "$TexturePacker:SmartUpdate:b2ae06934ed97ab096ac7eb0e44b62e3:4bde261ef40ede875256a0277807a1c0:729adc6043343cfda41c447ce8f464d6$"
       }
     };
-    
+
     function loadSpriteSheet() {
       var baseTexture = PIXI.BaseTexture.fromImage(spritesheetBase64);
 
@@ -4548,7 +4548,7 @@
 
         var feet = scoreInFeet(totalDistance)
         info.text = "Time: " + Math.floor(counter / 100) + " s. / " + "Distance: " + feet + " m."
-        if (feet >= 1500 && !winnerMessageShown) {
+        /*  if (feet >= 1500 && !winnerMessageShown) {
           winnerMessageShown = true;
           scrollSpeed = 0;
           frogCollision = false;
@@ -4570,7 +4570,7 @@
             winnerText.visible = true;
             stage.setChildIndex(winnerText, stage.children.length - 1);
           }
-        }
+        }  */
 
         if (currentEventDuration <= 0 && totalDistance > nextSpecial) {
           if (totalDistance < nextSpecial + specialLength) {
